@@ -22,4 +22,10 @@ public class DynamicArrayTest {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(8);
 		assertEquals(8, dynamicarray.getCapacity());
 	}
+	
+	@Test
+	public void checkForAnEmptyArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		assertTrue(dynamicarray.isEmpty());
+	}
 }

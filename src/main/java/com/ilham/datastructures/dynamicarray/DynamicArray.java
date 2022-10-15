@@ -21,4 +21,8 @@ public class DynamicArray<T> {
 	public int getCapacity() {
 		return this.capacity;
 	}
+	
+	public boolean isEmpty() {
+		return this.len == 0;
+	}
 }
