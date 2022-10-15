@@ -6,9 +6,9 @@ import org.junit.Test;
 
 public class DynamicArrayTest {
 
-	@Test
-	public void test() {
-		assertTrue(true);
+	@Test(expected = IllegalArgumentException.class)
+	public void testIllegalArgumentExceptionForInvalidCapacity() {
+		new DynamicArray<Integer>(-1);
 	}
 
 }
