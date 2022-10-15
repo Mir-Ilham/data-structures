@@ -17,4 +17,9 @@ public class DynamicArrayTest {
 		assertEquals(16, dynamicarray.getCapacity());
 	}
 
+	@Test
+	public void checkInitializationOfCapacity8() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(8);
+		assertEquals(8, dynamicarray.getCapacity());
+	}
 }
