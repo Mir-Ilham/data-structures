@@ -28,4 +28,12 @@ public class DynamicArrayTest {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 		assertTrue(dynamicarray.isEmpty());
 	}
+	
+	@Test
+	public void testAddingSingleElementAndAccessingIt() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		dynamicarray.add(a);
+		assertEquals(a, dynamicarray.get(0));
+	}
 }

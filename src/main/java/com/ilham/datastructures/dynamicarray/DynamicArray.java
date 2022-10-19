@@ -25,4 +25,19 @@ public class DynamicArray<T> {
 	public boolean isEmpty() {
 		return this.len == 0;
 	}
+	
+	public void add(T item) {
+		if (this.len + 1 > this.capacity) {
+			this.capacity *= 2;
+			T temp[] = (T[]) new Object[capacity];
+			for (int i = 0; i < len; i++)
+				temp[i] = arr[i];
+			arr = temp;
+		}
+		arr[len++] = item;
+	}
+	
+	public T get(int index) {
+		return this.arr[index];
+	}
 }
