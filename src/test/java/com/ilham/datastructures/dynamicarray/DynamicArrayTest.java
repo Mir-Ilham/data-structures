@@ -36,4 +36,43 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		assertEquals(a, dynamicarray.get(0));
 	}
+	
+	@Test
+	public void testCapacityDoubleFeatureOfDynamicArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(2);
+		Integer a = 101;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		assertEquals(4, dynamicarray.getCapacity());
+		assertEquals(a, dynamicarray.get(2));
+	}
+	
+	@Test
+	public void testCapacityAfterAddingToZeroCapacityDynamicArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(0);
+		Integer a = 101;
+		dynamicarray.add(a);
+		assertEquals(1, dynamicarray.getCapacity());
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testIndexingGreaterThanLength() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.get(10);		
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testIndexingLesserThanZero() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.get(-1);		
+	}
 }

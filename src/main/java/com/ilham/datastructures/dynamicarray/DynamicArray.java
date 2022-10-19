@@ -28,7 +28,12 @@ public class DynamicArray<T> {
 	
 	public void add(T item) {
 		if (this.len + 1 > this.capacity) {
-			this.capacity *= 2;
+			if (this.capacity == 0) {
+				this.capacity = 1;
+			} else {
+				this.capacity *= 2;				
+			}
+
 			T temp[] = (T[]) new Object[capacity];
 			for (int i = 0; i < len; i++)
 				temp[i] = arr[i];
@@ -38,6 +43,8 @@ public class DynamicArray<T> {
 	}
 	
 	public T get(int index) {
+		if (index < 0 || index > len - 1)
+			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
 		return this.arr[index];
 	}
 }
