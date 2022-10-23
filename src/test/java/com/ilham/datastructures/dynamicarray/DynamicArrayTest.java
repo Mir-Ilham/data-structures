@@ -75,4 +75,15 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		dynamicarray.get(-1);		
 	}
+	
+	@Test
+	public void testGetSizeOrLengthOfDynamicArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		assertEquals(3, dynamicarray.size());
+		assertEquals(3, dynamicarray.length());
+	}
 }

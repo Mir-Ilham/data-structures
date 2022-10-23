@@ -47,4 +47,12 @@ public class DynamicArray<T> {
 			throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
 		return this.arr[index];
 	}
+	
+	public int size() {
+		return this.len;
+	}
+	
+	public int length() {
+		return this.len;
+	}
 }
