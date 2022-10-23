@@ -53,7 +53,7 @@ public class DynamicArrayTest {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(0);
 		Integer a = 101;
 		dynamicarray.add(a);
-		assertEquals(1, dynamicarray.getCapacity());
+		assertEquals(16, dynamicarray.getCapacity());
 	}
 	
 	@Test(expected = IndexOutOfBoundsException.class)

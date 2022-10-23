@@ -29,7 +29,7 @@ public class DynamicArray<T> {
 	public void add(T item) {
 		if (this.len + 1 > this.capacity) {
 			if (this.capacity == 0) {
-				this.capacity = 1;
+				this.capacity = 16;
 			} else {
 				this.capacity *= 2;				
 			}
