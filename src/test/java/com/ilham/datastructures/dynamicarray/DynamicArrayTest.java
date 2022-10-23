@@ -86,4 +86,38 @@ public class DynamicArrayTest {
 		assertEquals(3, dynamicarray.size());
 		assertEquals(3, dynamicarray.length());
 	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testSettingElementOutOfPositiveArrayBounds() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.set(10, b);		
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testSettingElementAtNegativeIndex() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.set(-10, b);		
+	}
+	
+	@Test
+	public void testSettingElementAtValidIndex() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.set(2, b);
+		assertEquals(b, dynamicarray.get(2));
+	}
 }
