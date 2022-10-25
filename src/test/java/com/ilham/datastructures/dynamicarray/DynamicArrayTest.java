@@ -120,4 +120,21 @@ public class DynamicArrayTest {
 		dynamicarray.set(2, b);
 		assertEquals(b, dynamicarray.get(2));
 	}
+	
+	@Test(expected = RuntimeException.class)
+	public void testRemovingFromEmptyArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		dynamicarray.remove();
+	}
+	
+	@Test
+	public void testRemovingFromArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.remove();
+		assertEquals(2, dynamicarray.size());
+	}
 }

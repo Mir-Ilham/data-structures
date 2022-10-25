@@ -54,6 +54,16 @@ public class DynamicArray<T> {
 		this.arr[index] = item;
 	}
 	
+	public void remove() {
+		// Remove or Pop an element from the last index of array
+		if(isEmpty()) {
+			throw new RuntimeException("Removing from empty array.");
+		} else {
+			arr[this.len - 1] = null;
+			this.len--;
+		}
+	}
+	
 	public int size() {
 		return this.len;
 	}
