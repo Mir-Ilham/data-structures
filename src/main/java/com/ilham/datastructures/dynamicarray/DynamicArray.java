@@ -89,6 +89,13 @@ public class DynamicArray<T> {
 		return item;
 	}
 	
+	public void clear() {
+		for (int i = 0; i < this.len; i++) {
+			this.arr[i] = null;
+		}
+		this.len = 0;
+	}
+	
 	public int size() {
 		return this.len;
 	}

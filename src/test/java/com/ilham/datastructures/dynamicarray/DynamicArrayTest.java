@@ -201,4 +201,18 @@ public class DynamicArrayTest {
 		assertEquals(b, dynamicarray.removeAtIndex(2));
 		assertEquals(4, dynamicarray.size());
 	}
+	
+	@Test
+	public void testClearArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(b);
+		dynamicarray.add(b);
+		dynamicarray.clear();
+		assertEquals(0, dynamicarray.size());
+	}
 }
