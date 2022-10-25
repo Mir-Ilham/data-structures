@@ -156,10 +156,11 @@ public class DynamicArrayTest {
 	public void testRemovingFromArray() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 		Integer a = 101;
+		Integer b = 201;
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		dynamicarray.add(a);
-		dynamicarray.remove();
+		dynamicarray.add(b);
+		assertEquals(b, dynamicarray.remove());
 		assertEquals(2, dynamicarray.size());
 	}
 	

@@ -67,14 +67,15 @@ public class DynamicArray<T> {
 		this.arr[index] = item;
 	}
 	
-	public void remove() {
-		// Remove or Pop an element from the last index of array
+	public T remove() {
+		// Remove or Pop an element from the last index of array and return it
 		if(isEmpty()) {
 			throw new RuntimeException("Removing from empty array.");
-		} else {
-			arr[this.len - 1] = null;
-			this.len--;
 		}
+		T item = this.arr[len - 1];
+		this.arr[this.len - 1] = null;
+		this.len--;
+		return item;
 	}
 	
 	public T removeAtIndex(int index) {
