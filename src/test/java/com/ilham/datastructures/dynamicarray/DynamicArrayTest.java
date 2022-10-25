@@ -162,4 +162,42 @@ public class DynamicArrayTest {
 		dynamicarray.remove();
 		assertEquals(2, dynamicarray.size());
 	}
+	
+	@Test(expected = RuntimeException.class)
+	public void testRemovingAtIndexFromEmptyArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		dynamicarray.removeAtIndex(0);
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testRemovingElementAtNegativeIndex() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.removeAtIndex(-1);	
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testRemovingElementOutOfPositiveArrayBounds() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.removeAtIndex(5);		
+	}
+	
+	@Test
+	public void testRemovingAtValidIndex() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(b);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		assertEquals(b, dynamicarray.removeAtIndex(2));
+		assertEquals(4, dynamicarray.size());
+	}
 }

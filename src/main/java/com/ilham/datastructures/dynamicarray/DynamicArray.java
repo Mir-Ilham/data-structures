@@ -75,6 +75,17 @@ public class DynamicArray<T> {
 		}
 	}
 	
+	public T removeAtIndex(int index) {
+		// Remove an item from given index and return it
+		T item = this.arr[index];
+		for (int i = index; i < this.len - 1; i++) {
+			this.arr[i] = this.arr[i + 1];
+		}
+		this.arr[this.len - 1] = null;
+		this.len--;
+		return item;
+	}
+	
 	public int size() {
 		return this.len;
 	}
