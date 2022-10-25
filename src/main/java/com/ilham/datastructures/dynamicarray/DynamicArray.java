@@ -11,7 +11,7 @@ public class DynamicArray<T> {
 	}
 	
 	DynamicArray(int capacity) {
-		if (capacity < 0) {
+		if (capacity <= 0) {
 			throw new IllegalArgumentException("Illegal Capacity: " + capacity);
 		}
 		this.capacity = capacity;
@@ -28,18 +28,18 @@ public class DynamicArray<T> {
 	
 	public void add(T item) {
 		if (this.len + 1 > this.capacity) {
-			if (this.capacity == 0) {
-				this.capacity = 16;
-			} else {
-				this.capacity *= 2;				
-			}
-
-			T temp[] = (T[]) new Object[capacity];
-			for (int i = 0; i < len; i++)
-				temp[i] = arr[i];
-			arr = temp;
+			expandCapacity();
 		}
 		arr[len++] = item;
+	}
+	
+	private void expandCapacity() {
+		this.capacity *= 2;
+
+		T temp[] = (T[]) new Object[capacity];
+		for (int i = 0; i < len; i++)
+			temp[i] = arr[i];
+		arr = temp;
 	}
 	
 	public T get(int index) {

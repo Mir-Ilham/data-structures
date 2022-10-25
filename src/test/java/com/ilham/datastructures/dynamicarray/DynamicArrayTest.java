@@ -23,6 +23,11 @@ public class DynamicArrayTest {
 		assertEquals(8, dynamicarray.getCapacity());
 	}
 	
+	@Test(expected = IllegalArgumentException.class)
+	public void testZeroCapacityInitializationOfDynamicArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(0);
+	}
+	
 	@Test
 	public void checkForAnEmptyArray() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
@@ -46,14 +51,6 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		assertEquals(4, dynamicarray.getCapacity());
 		assertEquals(a, dynamicarray.get(2));
-	}
-	
-	@Test
-	public void testCapacityAfterAddingToZeroCapacityDynamicArray() {
-		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(0);
-		Integer a = 101;
-		dynamicarray.add(a);
-		assertEquals(16, dynamicarray.getCapacity());
 	}
 	
 	@Test(expected = IndexOutOfBoundsException.class)
