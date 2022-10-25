@@ -43,7 +43,20 @@ public class DynamicArrayTest {
 	}
 	
 	@Test
-	public void testCapacityDoubleFeatureOfDynamicArray() {
+	public void testAddingElementAtASpecificIndexAndAccessingIt() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.addAtIndex(b, 2);
+		assertEquals(b, dynamicarray.get(2));
+	}
+	
+	@Test
+	public void testCapacityDoubleFeatureOfDynamicArray1() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(2);
 		Integer a = 101;
 		dynamicarray.add(a);
@@ -51,6 +64,21 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		assertEquals(4, dynamicarray.getCapacity());
 		assertEquals(a, dynamicarray.get(2));
+	}
+	
+	@Test
+	public void testCapacityDoubleFeatureOfDynamicArray2() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.addAtIndex(b, 2);
+		assertEquals(10, dynamicarray.getCapacity());
+		assertEquals(b, dynamicarray.get(2));
 	}
 	
 	@Test(expected = IndexOutOfBoundsException.class)

@@ -30,7 +30,18 @@ public class DynamicArray<T> {
 		if (this.len + 1 > this.capacity) {
 			expandCapacity();
 		}
-		arr[len++] = item;
+		this.arr[len++] = item;
+	}
+	
+	public void addAtIndex(T item, int index) {
+		if (this.len + 1 > this.capacity) {
+			expandCapacity();
+		}
+		for (int i = this.len - 1; i >= index; i--) {
+			this.arr[i + 1] = this.arr[i];
+		}
+		this.arr[index] = item;
+		this.len++;
 	}
 	
 	private void expandCapacity() {
