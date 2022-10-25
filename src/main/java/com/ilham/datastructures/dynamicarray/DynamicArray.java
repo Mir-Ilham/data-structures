@@ -7,6 +7,7 @@ public class DynamicArray<T> {
 	private int capacity = 0;
 	
 	DynamicArray() {
+		// Default initialization
 		this(16);
 	}
 	
@@ -27,6 +28,7 @@ public class DynamicArray<T> {
 	}
 	
 	public void add(T item) {
+		// Add item to the end of the array
 		if (this.len + 1 > this.capacity) {
 			expandCapacity();
 		}
