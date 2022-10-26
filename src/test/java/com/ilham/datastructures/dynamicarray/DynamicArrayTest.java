@@ -215,4 +215,30 @@ public class DynamicArrayTest {
 		dynamicarray.clear();
 		assertEquals(0, dynamicarray.size());
 	}
+	
+	@Test
+	public void testGetIndexOfElementInArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(b);
+		dynamicarray.add(a);
+		assertEquals(3, dynamicarray.getIndex(b));
+	}
+	
+	@Test
+	public void testGetIndexOfElementNotInArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		assertEquals(-1, dynamicarray.getIndex(b));
+	}
 }

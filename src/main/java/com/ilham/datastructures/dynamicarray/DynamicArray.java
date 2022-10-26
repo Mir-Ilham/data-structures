@@ -96,6 +96,14 @@ public class DynamicArray<T> {
 		this.len = 0;
 	}
 	
+	public int getIndex(T item) {
+		for (int i = 0; i < this.len; i++) {
+			if (this.arr[i] == item)
+				return i;
+		}
+		return -1;
+	}
+	
 	public int size() {
 		return this.len;
 	}
