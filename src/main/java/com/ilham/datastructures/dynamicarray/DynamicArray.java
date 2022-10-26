@@ -89,6 +89,18 @@ public class DynamicArray<T> {
 		return item;
 	}
 	
+	public boolean removeItem(T item) {
+		// Return true if first occurence of item removed else false
+		int index = getIndex(item);
+		if (index == -1) {
+			return false;
+		} else {
+			removeAtIndex(index);
+			return true;
+		}
+		
+	}
+	
 	public void clear() {
 		for (int i = 0; i < this.len; i++) {
 			this.arr[i] = null;

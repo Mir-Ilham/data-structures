@@ -203,6 +203,32 @@ public class DynamicArrayTest {
 	}
 	
 	@Test
+	public void testRemoveElementInArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(b);
+		dynamicarray.add(a);
+		assertTrue(dynamicarray.removeItem(b));
+	}
+	
+	@Test
+	public void testRemoveElementNotInArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 101;
+		Integer b = 201;
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		dynamicarray.add(a);
+		assertFalse(dynamicarray.removeItem(b));
+	}
+	
+	@Test
 	public void testClearArray() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 		Integer a = 101;
