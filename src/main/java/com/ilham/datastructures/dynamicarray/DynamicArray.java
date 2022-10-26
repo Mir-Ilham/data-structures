@@ -104,6 +104,10 @@ public class DynamicArray<T> {
 		return -1;
 	}
 	
+	public boolean contains(T item) {
+		return getIndex(item) != -1;
+	}
+	
 	public int size() {
 		return this.len;
 	}
