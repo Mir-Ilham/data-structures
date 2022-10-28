@@ -19,6 +19,21 @@ public class LinkedList<T> {
 		}
 	}
 	
+	public int length() {
+		return this.size;
+	}
+	
+	public void addBegin(T elem) {
+		Node<T> newNode = new Node<T>(elem, null);
+		if (this.head == null) {
+			this.head = newNode;
+		} else {
+			newNode.next = head;
+			head = newNode;
+		}
+		this.size++;
+	}
+	
 	@Override
 	public String toString() {
 		if (this.head == null) {
