@@ -293,4 +293,22 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		assertFalse(dynamicarray.contains(b));
 	}
+	
+	@Test
+	public void testStringifyingEmptyArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		assertEquals("[]", dynamicarray.toString());
+	}
+	
+	@Test
+	public void testStringifyingNonEmptyArray() {
+		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
+		Integer a = 1;
+		Integer b = 2;
+		Integer c = 3;
+		dynamicarray.add(a);
+		dynamicarray.add(b);
+		dynamicarray.add(c);
+		assertEquals("[1, 2, 3]", dynamicarray.toString());
+	}
 }

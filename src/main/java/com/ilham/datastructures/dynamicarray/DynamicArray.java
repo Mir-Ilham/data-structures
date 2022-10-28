@@ -127,4 +127,18 @@ public class DynamicArray<T> {
 	public int length() {
 		return this.len;
 	}
+	
+	@Override
+	public String toString() {
+		if (this.len == 0) {
+			return "[]";
+		}
+		StringBuilder sb = new StringBuilder("[");
+		int i = 0;
+		for (i = 0; i < this.len - 1; i++) {
+			sb.append(this.arr[i].toString() + ", ");
+		}
+		sb.append(this.arr[i] + "]");
+		return sb.toString();
+	}
 }
