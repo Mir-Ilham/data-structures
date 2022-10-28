@@ -18,4 +18,21 @@ public class LinkedList<T> {
 			return data.toString();
 		}
 	}
+	
+	@Override
+	public String toString() {
+		if (this.head == null) {
+			return "[]";
+		}
+		String result;
+		StringBuilder sb = new StringBuilder("[");
+		Node<T> temp = head;
+		while (temp != null) {
+			sb.append(temp.toString() + ", ");
+			temp = temp.next;
+		}
+		result = sb.toString();
+		result = result.substring(0, result.length() - 2) + "]";
+		return result;
+	}
 }
