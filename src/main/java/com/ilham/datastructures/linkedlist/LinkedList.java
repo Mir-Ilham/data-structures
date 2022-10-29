@@ -52,6 +52,10 @@ public class LinkedList<T> {
 		}
 	}
 	
+	public void addEnd(T elem) {
+		addAtIndex(elem, this.size);
+	}
+	
 	private Node<T> getNode(int index) {
 		// Return reference to the node at the given index
 		// Index is assumed to be valid

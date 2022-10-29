@@ -101,4 +101,18 @@ public class LinkedListTest {
 		assertEquals(4, linkedlist.length());
 	}
 
+	@Test
+	public void testAddingElementsAtTail() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addEnd(a);
+		linkedlist.addEnd(b);
+		linkedlist.addEnd(c);
+		
+		assertEquals("[101, 202, 303]", linkedlist.toString());
+		assertEquals(3, linkedlist.length());
+	}
 }
