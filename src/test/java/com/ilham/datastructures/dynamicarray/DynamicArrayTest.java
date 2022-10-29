@@ -25,7 +25,7 @@ public class DynamicArrayTest {
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testZeroCapacityInitializationOfDynamicArray() {
-		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(0);
+		new DynamicArray<Integer>(0);
 	}
 	
 	@Test
