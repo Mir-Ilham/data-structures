@@ -115,4 +115,46 @@ public class LinkedListTest {
 		assertEquals("[101, 202, 303]", linkedlist.toString());
 		assertEquals(3, linkedlist.length());
 	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testAccessingElementAtNegativeInvalidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addEnd(a);
+		linkedlist.addEnd(b);
+		linkedlist.addEnd(c);
+		
+		linkedlist.get(-1);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testAccessingElementAtPositiveInvalidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addEnd(a);
+		linkedlist.addEnd(b);
+		linkedlist.addEnd(c);
+		
+		linkedlist.get(linkedlist.length());
+	}
+	
+	@Test
+	public void testAccessingElementAtValidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addEnd(a);
+		linkedlist.addEnd(b);
+		linkedlist.addEnd(c);
+		
+		assertEquals(b, linkedlist.get(1));
+	}
 }

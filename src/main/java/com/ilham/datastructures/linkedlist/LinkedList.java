@@ -56,6 +56,13 @@ public class LinkedList<T> {
 		addAtIndex(elem, this.size);
 	}
 	
+	public T get(int index) {
+		// Return data in the node of given index
+		if (index < 0 || index > this.size - 1)
+			throw new IllegalArgumentException();
+		return getNode(index).data;
+	}
+	
 	private Node<T> getNode(int index) {
 		// Return reference to the node at the given index
 		// Index is assumed to be valid
