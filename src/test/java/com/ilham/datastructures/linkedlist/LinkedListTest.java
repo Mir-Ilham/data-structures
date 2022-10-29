@@ -201,4 +201,27 @@ public class LinkedListTest {
 		
 		assertEquals(c, linkedlist.get(2));
 	}
+
+	@Test(expected = RuntimeException.class)
+	public void testRemovingElementsFromHeadOfEmptyList() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		linkedlist.removeBegin();
+	}
+	
+	@Test
+	public void testRemovingElementsFromHead() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		Integer removedElement = linkedlist.removeBegin();
+		
+		assertEquals("[202, 303]", linkedlist.toString());
+		assertEquals(a, removedElement);
+		assertEquals(2, linkedlist.length());
+	}
 }

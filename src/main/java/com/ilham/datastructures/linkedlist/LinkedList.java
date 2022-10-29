@@ -70,6 +70,18 @@ public class LinkedList<T> {
 		getNode(index).data = elem;
 	}
 	
+	public T removeBegin() {
+		if (this.size == 0)
+			throw new RuntimeException("Empty list");
+		T data = this.head.data;
+		Node<T> temp = this.head.next;
+		this.head.data = null;
+		this.head.next = null;
+		this.head = temp;
+		this.size--;
+		return data;
+	}
+	
 	private Node<T> getNode(int index) {
 		// Return reference to the node at the given index
 		// Index is assumed to be valid
