@@ -82,6 +82,28 @@ public class LinkedList<T> {
 		return data;
 	}
 	
+	public T removeAtIndex(int index) {
+		// Remove an element from a specific index of the linked list
+		// If index is zero remove from head
+		// If index = list.size - 1 remove from tail
+		if (this.size == 0)
+			throw new RuntimeException("Empty list");
+		if (index < 0 || index > this.size - 1)
+			throw new IllegalArgumentException();
+		if (index == 0) {
+			return removeBegin();
+		} else {
+			Node<T> temp1 = getNode(index - 1);
+			Node<T> temp2 = temp1.next;
+			T data = temp2.data;
+			temp1.next = temp2.next;
+			temp2.next = null;
+			temp2.data = null;
+			this.size--;
+			return data;
+		}
+	}
+	
 	private Node<T> getNode(int index) {
 		// Return reference to the node at the given index
 		// Index is assumed to be valid

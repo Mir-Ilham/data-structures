@@ -224,4 +224,112 @@ public class LinkedListTest {
 		assertEquals(a, removedElement);
 		assertEquals(2, linkedlist.length());
 	}
+	
+	@Test(expected = RuntimeException.class)
+	public void testRemovingElementsByIndexingEmptyList() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		linkedlist.removeAtIndex(0);
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void testRemovingElementsBeyondEmptyList() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		
+		linkedlist.removeAtIndex(0);
+		linkedlist.removeAtIndex(0);
+		linkedlist.removeAtIndex(0);
+		linkedlist.removeAtIndex(0);
+	}
+	
+	@Test
+	public void testRemovingElementsTillEmptyList() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		
+		linkedlist.removeAtIndex(0);
+		linkedlist.removeAtIndex(0);
+		linkedlist.removeAtIndex(0);
+		
+		assertEquals("[]", linkedlist.toString());
+		assertEquals(0, linkedlist.length());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testRemovingElementAtNegativeInvalidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		linkedlist.removeAtIndex(-1);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testRemovingElementAtPositiveInvalidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		linkedlist.removeAtIndex(linkedlist.length());
+	}
+	
+	@Test
+	public void testRemovingElementAtValidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		Integer d = 404;
+		
+		linkedlist.addBegin(d);
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		
+		Integer removedElement = linkedlist.removeAtIndex(2);
+		
+		assertEquals("[101, 202, 404]", linkedlist.toString());
+		assertEquals(c, removedElement);
+		assertEquals(3, linkedlist.length());
+	}
+	
+	@Test
+	public void testRemovingElementAtZeroIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		Integer d = 404;
+		
+		linkedlist.addBegin(d);
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		
+		Integer removedElement = linkedlist.removeAtIndex(0);
+		
+		assertEquals("[202, 303, 404]", linkedlist.toString());
+		assertEquals(a, removedElement);
+		assertEquals(3, linkedlist.length());
+	}
 }
