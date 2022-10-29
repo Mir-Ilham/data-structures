@@ -104,6 +104,10 @@ public class LinkedList<T> {
 		}
 	}
 	
+	public T removeEnd() {
+		return removeAtIndex(this.size - 1);
+	}
+	
 	private Node<T> getNode(int index) {
 		// Return reference to the node at the given index
 		// Index is assumed to be valid

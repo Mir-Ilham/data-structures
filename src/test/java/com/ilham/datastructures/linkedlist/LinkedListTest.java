@@ -332,4 +332,24 @@ public class LinkedListTest {
 		assertEquals(a, removedElement);
 		assertEquals(3, linkedlist.length());
 	}
+	
+	@Test
+	public void testRemovingElementFromTail() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		Integer d = 404;
+		
+		linkedlist.addBegin(d);
+		linkedlist.addBegin(c);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(a);
+		
+		Integer removedElement = linkedlist.removeEnd();
+		
+		assertEquals("[101, 202, 303]", linkedlist.toString());
+		assertEquals(d, removedElement);
+		assertEquals(3, linkedlist.length());
+	}
 }
