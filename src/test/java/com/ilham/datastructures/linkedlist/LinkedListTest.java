@@ -123,9 +123,9 @@ public class LinkedListTest {
 		Integer b = 202;
 		Integer c = 303;
 		
-		linkedlist.addEnd(a);
-		linkedlist.addEnd(b);
-		linkedlist.addEnd(c);
+		linkedlist.addBegin(a);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(c);
 		
 		linkedlist.get(-1);
 	}
@@ -137,9 +137,9 @@ public class LinkedListTest {
 		Integer b = 202;
 		Integer c = 303;
 		
-		linkedlist.addEnd(a);
-		linkedlist.addEnd(b);
-		linkedlist.addEnd(c);
+		linkedlist.addBegin(a);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(c);
 		
 		linkedlist.get(linkedlist.length());
 	}
@@ -151,10 +151,54 @@ public class LinkedListTest {
 		Integer b = 202;
 		Integer c = 303;
 		
-		linkedlist.addEnd(a);
-		linkedlist.addEnd(b);
-		linkedlist.addEnd(c);
+		linkedlist.addBegin(a);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(c);
 		
 		assertEquals(b, linkedlist.get(1));
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testUpdatingElementAtNegativeInvalidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(a);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(c);
+		
+		linkedlist.set(a, -1);
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void testUpdatingElementAtPositiveInvalidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(a);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(c);
+		
+		linkedlist.set(a, linkedlist.length());
+	}
+	
+	@Test
+	public void testUpdatingElementAtValidIndex() {
+		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
+		Integer a = 101;
+		Integer b = 202;
+		Integer c = 303;
+		
+		linkedlist.addBegin(a);
+		linkedlist.addBegin(b);
+		linkedlist.addBegin(c);
+		
+		linkedlist.set(c, 2);
+		
+		assertEquals(c, linkedlist.get(2));
 	}
 }
