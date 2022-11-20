@@ -1,11 +1,14 @@
 package com.ilham.datastructures.linkedlist;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class LinkedListTest {
 
+	// Add display names for test
+	// Remove redundant code using @before
+	
 	@Test
 	public void testEmptyList() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
@@ -29,15 +32,14 @@ public class LinkedListTest {
 		assertEquals(3, linkedlist.length());
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testAddingElementsAtInvalidNegativeIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
-		
-		linkedlist.addAtIndex(a, -1);
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.addAtIndex(a, -1));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testAddingElementsAtInvalidPositiveIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -45,8 +47,7 @@ public class LinkedListTest {
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(a);
-		
-		linkedlist.addAtIndex(a, 4);
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.addAtIndex(a, 4));
 	}
 	
 	@Test
@@ -116,7 +117,7 @@ public class LinkedListTest {
 		assertEquals(3, linkedlist.length());
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testAccessingElementAtNegativeInvalidIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -127,10 +128,10 @@ public class LinkedListTest {
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
 		
-		linkedlist.get(-1);
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.get(-1));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testAccessingElementAtPositiveInvalidIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -141,7 +142,7 @@ public class LinkedListTest {
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
 		
-		linkedlist.get(linkedlist.length());
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.get(linkedlist.length()));
 	}
 	
 	@Test
@@ -158,7 +159,7 @@ public class LinkedListTest {
 		assertEquals(b, linkedlist.get(1));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testUpdatingElementAtNegativeInvalidIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -169,10 +170,10 @@ public class LinkedListTest {
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
 		
-		linkedlist.set(a, -1);
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.set(a, -1));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testUpdatingElementAtPositiveInvalidIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -183,7 +184,7 @@ public class LinkedListTest {
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
 		
-		linkedlist.set(a, linkedlist.length());
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.set(a, linkedlist.length()));
 	}
 	
 	@Test
@@ -202,10 +203,10 @@ public class LinkedListTest {
 		assertEquals(c, linkedlist.get(2));
 	}
 
-	@Test(expected = RuntimeException.class)
+	@Test
 	public void testRemovingElementsFromHeadOfEmptyList() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		linkedlist.removeBegin();
+		assertThrows(RuntimeException.class, () -> linkedlist.removeBegin());
 	}
 	
 	@Test
@@ -225,13 +226,13 @@ public class LinkedListTest {
 		assertEquals(2, linkedlist.length());
 	}
 	
-	@Test(expected = RuntimeException.class)
+	@Test
 	public void testRemovingElementsByIndexingEmptyList() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		linkedlist.removeAtIndex(0);
+		assertThrows(RuntimeException.class, () -> linkedlist.removeAtIndex(0));
 	}
 	
-	@Test(expected = RuntimeException.class)
+	@Test
 	public void testRemovingElementsBeyondEmptyList() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -245,7 +246,7 @@ public class LinkedListTest {
 		linkedlist.removeAtIndex(0);
 		linkedlist.removeAtIndex(0);
 		linkedlist.removeAtIndex(0);
-		linkedlist.removeAtIndex(0);
+		assertThrows(RuntimeException.class, () -> linkedlist.removeAtIndex(0));
 	}
 	
 	@Test
@@ -267,7 +268,7 @@ public class LinkedListTest {
 		assertEquals(0, linkedlist.length());
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testRemovingElementAtNegativeInvalidIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -277,10 +278,11 @@ public class LinkedListTest {
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
-		linkedlist.removeAtIndex(-1);
+		
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.removeAtIndex(-1));
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testRemovingElementAtPositiveInvalidIndex() {
 		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		Integer a = 101;
@@ -290,7 +292,8 @@ public class LinkedListTest {
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
-		linkedlist.removeAtIndex(linkedlist.length());
+		
+		assertThrows(IllegalArgumentException.class, () -> linkedlist.removeAtIndex(linkedlist.length()));
 	}
 	
 	@Test

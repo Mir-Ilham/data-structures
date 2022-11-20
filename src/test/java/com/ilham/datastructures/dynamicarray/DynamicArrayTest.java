@@ -1,14 +1,17 @@
 package com.ilham.datastructures.dynamicarray;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class DynamicArrayTest {
-
-	@Test(expected = IllegalArgumentException.class)
+	
+	// Add display names for test
+	// Remove redundant code using @before
+	
+	@Test
 	public void testIllegalArgumentExceptionForInvalidCapacity() {
-		new DynamicArray<Integer>(-1);
+		assertThrows(IllegalArgumentException.class, () -> new DynamicArray<Integer>(-1));
 	}
 	
 	@Test
@@ -23,9 +26,9 @@ public class DynamicArrayTest {
 		assertEquals(8, dynamicarray.getCapacity());
 	}
 	
-	@Test(expected = IllegalArgumentException.class)
+	@Test
 	public void testZeroCapacityInitializationOfDynamicArray() {
-		new DynamicArray<Integer>(0);
+		assertThrows(IllegalArgumentException.class, () -> new DynamicArray<Integer>(0));
 	}
 	
 	@Test
@@ -81,24 +84,24 @@ public class DynamicArrayTest {
 		assertEquals(b, dynamicarray.get(2));
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testIndexingGreaterThanLength() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 		Integer a = 101;
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		dynamicarray.add(a);
-		dynamicarray.get(10);		
+		dynamicarray.add(a);		
+		assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.get(10));
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testIndexingLesserThanZero() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 		Integer a = 101;
 		dynamicarray.add(a);
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		dynamicarray.get(-1);		
+		assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.get(-1));
 	}
 	
 	@Test
@@ -112,7 +115,7 @@ public class DynamicArrayTest {
 		assertEquals(3, dynamicarray.length());
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testSettingElementOutOfPositiveArrayBounds() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 		Integer a = 101;
@@ -120,10 +123,10 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		dynamicarray.set(10, b);		
+		assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.set(10, b));
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testSettingElementAtNegativeIndex() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 		Integer a = 101;
@@ -131,7 +134,7 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		dynamicarray.set(-10, b);		
+		assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.set(-10, b));
 	}
 	
 	@Test
@@ -146,10 +149,10 @@ public class DynamicArrayTest {
 		assertEquals(b, dynamicarray.get(2));
 	}
 	
-	@Test(expected = RuntimeException.class)
+	@Test
 	public void testRemovingFromEmptyArray() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
-		dynamicarray.remove();
+		assertThrows(RuntimeException.class, () -> dynamicarray.remove());
 	}
 	
 	@Test
@@ -164,28 +167,28 @@ public class DynamicArrayTest {
 		assertEquals(2, dynamicarray.size());
 	}
 	
-	@Test(expected = RuntimeException.class)
+	@Test
 	public void testRemovingAtIndexFromEmptyArray() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
-		dynamicarray.removeAtIndex(0);
+		assertThrows(RuntimeException.class, () -> dynamicarray.removeAtIndex(0));
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testRemovingElementAtNegativeIndex() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 		Integer a = 101;
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		dynamicarray.removeAtIndex(-1);	
+		assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.removeAtIndex(-1));
 	}
 	
-	@Test(expected = IndexOutOfBoundsException.class)
+	@Test
 	public void testRemovingElementOutOfPositiveArrayBounds() {
 		DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 		Integer a = 101;
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		dynamicarray.removeAtIndex(5);		
+		assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.removeAtIndex(5));
 	}
 	
 	@Test
