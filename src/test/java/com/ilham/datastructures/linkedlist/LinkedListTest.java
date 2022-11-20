@@ -2,28 +2,33 @@ package com.ilham.datastructures.linkedlist;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class LinkedListTest {
 
 	// Add display names for test
-	// Remove redundant code using @before
+	
+	LinkedList<Integer> linkedlist;
+	
+	Integer a = 101;
+	Integer b = 202;
+	Integer c = 303;
+	Integer d = 404;
+	
+	@BeforeEach
+	void init() {
+		linkedlist = new LinkedList<Integer>();
+	}
 	
 	@Test
 	public void testEmptyList() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		
 		assertEquals("[]", linkedlist.toString());
 		assertEquals(0, linkedlist.length());
 	}
 
 	@Test
 	public void testAddingElementsAtHead() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -34,16 +39,11 @@ public class LinkedListTest {
 	
 	@Test
 	public void testAddingElementsAtInvalidNegativeIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
 		assertThrows(IllegalArgumentException.class, () -> linkedlist.addAtIndex(a, -1));
 	}
 	
 	@Test
 	public void testAddingElementsAtInvalidPositiveIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(a);
@@ -52,11 +52,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testAddingElementsAtIndexZero() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addAtIndex(c, 0);
 		linkedlist.addAtIndex(b, 0);
 		linkedlist.addAtIndex(a, 0);
@@ -67,11 +62,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testAddingElementsAtAValidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -88,11 +78,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testAddingElementsIndexingAtTail() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -104,11 +89,6 @@ public class LinkedListTest {
 
 	@Test
 	public void testAddingElementsAtTail() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addEnd(a);
 		linkedlist.addEnd(b);
 		linkedlist.addEnd(c);
@@ -119,11 +99,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testAccessingElementAtNegativeInvalidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
@@ -133,11 +108,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testAccessingElementAtPositiveInvalidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
@@ -147,11 +117,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testAccessingElementAtValidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
@@ -161,11 +126,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testUpdatingElementAtNegativeInvalidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
@@ -175,11 +135,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testUpdatingElementAtPositiveInvalidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
@@ -189,11 +144,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testUpdatingElementAtValidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(a);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(c);
@@ -205,17 +155,11 @@ public class LinkedListTest {
 
 	@Test
 	public void testRemovingElementsFromHeadOfEmptyList() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		assertThrows(RuntimeException.class, () -> linkedlist.removeBegin());
 	}
 	
 	@Test
 	public void testRemovingElementsFromHead() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -228,17 +172,11 @@ public class LinkedListTest {
 	
 	@Test
 	public void testRemovingElementsByIndexingEmptyList() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
 		assertThrows(RuntimeException.class, () -> linkedlist.removeAtIndex(0));
 	}
 	
 	@Test
 	public void testRemovingElementsBeyondEmptyList() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -251,11 +189,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testRemovingElementsTillEmptyList() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -270,11 +203,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testRemovingElementAtNegativeInvalidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -284,11 +212,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testRemovingElementAtPositiveInvalidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
@@ -298,12 +221,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testRemovingElementAtValidIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		Integer d = 404;
-		
 		linkedlist.addBegin(d);
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
@@ -318,12 +235,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testRemovingElementAtZeroIndex() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		Integer d = 404;
-		
 		linkedlist.addBegin(d);
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
@@ -338,12 +249,6 @@ public class LinkedListTest {
 	
 	@Test
 	public void testRemovingElementFromTail() {
-		LinkedList<Integer> linkedlist = new LinkedList<Integer>();
-		Integer a = 101;
-		Integer b = 202;
-		Integer c = 303;
-		Integer d = 404;
-		
 		linkedlist.addBegin(d);
 		linkedlist.addBegin(c);
 		linkedlist.addBegin(b);
