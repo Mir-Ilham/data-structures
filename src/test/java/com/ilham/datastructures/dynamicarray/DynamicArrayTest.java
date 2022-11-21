@@ -65,8 +65,10 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		assertEquals(4, dynamicarray.getCapacity());
-		assertEquals(a, dynamicarray.get(2));
+		assertAll(
+				() -> assertEquals(4, dynamicarray.getCapacity()),
+				() -> assertEquals(a, dynamicarray.get(2))
+				);
 	}
 	
 	@Test
@@ -78,8 +80,10 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		dynamicarray.add(a);
 		dynamicarray.addAtIndex(b, 2);
-		assertEquals(10, dynamicarray.getCapacity());
-		assertEquals(b, dynamicarray.get(2));
+		assertAll(
+				() -> assertEquals(10, dynamicarray.getCapacity()),
+				() -> assertEquals(b, dynamicarray.get(2))
+				);
 	}
 	
 	@Test
@@ -106,8 +110,10 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		assertEquals(3, dynamicarray.size());
-		assertEquals(3, dynamicarray.length());
+		assertAll(
+				() -> assertEquals(3, dynamicarray.size()),
+				() -> assertEquals(3, dynamicarray.length())
+				);
 	}
 	
 	@Test
@@ -150,8 +156,10 @@ public class DynamicArrayTest {
 		dynamicarray.add(a);
 		dynamicarray.add(a);
 		dynamicarray.add(b);
-		assertEquals(b, dynamicarray.remove());
-		assertEquals(2, dynamicarray.size());
+		assertAll(
+				() -> assertEquals(b, dynamicarray.remove()),
+				() -> assertEquals(2, dynamicarray.size())
+				);
 	}
 	
 	@Test
@@ -184,8 +192,10 @@ public class DynamicArrayTest {
 		dynamicarray.add(b);
 		dynamicarray.add(a);
 		dynamicarray.add(a);
-		assertEquals(b, dynamicarray.removeAtIndex(2));
-		assertEquals(4, dynamicarray.size());
+		assertAll(
+				() -> assertEquals(b, dynamicarray.removeAtIndex(2)),
+				() -> assertEquals(4, dynamicarray.size())
+				);
 	}
 	
 	@Test
