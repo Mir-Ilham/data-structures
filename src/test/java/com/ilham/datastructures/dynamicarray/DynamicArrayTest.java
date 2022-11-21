@@ -2,6 +2,7 @@ package com.ilham.datastructures.dynamicarray;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -97,9 +98,15 @@ public class DynamicArrayTest {
 	@Nested
 	@DisplayName("\"Indexing elements\" tests")
 	class IndexTests {
+		DynamicArray<Integer> dynamicarray;
+		
+		@BeforeEach
+		void init() {
+			dynamicarray = new DynamicArray<Integer>();
+		}
+		
 		@Test
 		public void testIndexingGreaterThanLength() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);		
@@ -108,7 +115,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testIndexingLesserThanZero() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -117,7 +123,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testValidIndexing() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 			dynamicarray.add(a);
 			dynamicarray.add(b);
 			dynamicarray.add(c);
@@ -126,7 +131,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testGetIndexOfElementInArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -137,7 +141,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testGetIndexOfElementNotInArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -148,7 +151,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testElementInArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -159,7 +161,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testElementNotInArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -172,9 +173,15 @@ public class DynamicArrayTest {
 	@Nested
 	@DisplayName("\"Setting elements\" tests")
 	class SetTests {
+		DynamicArray<Integer> dynamicarray;
+		
+		@BeforeEach
+		void init() {
+			dynamicarray = new DynamicArray<Integer>();
+		}
+		
 		@Test
 		public void testSettingElementOutOfPositiveArrayBounds() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -183,7 +190,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testSettingElementAtNegativeIndex() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -192,7 +198,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testSettingElementAtValidIndex() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -204,15 +209,20 @@ public class DynamicArrayTest {
 	@Nested
 	@DisplayName("\"Removing elements\" tests")
 	class RemoveTests {
+		DynamicArray<Integer> dynamicarray;
+		
+		@BeforeEach
+		void init() {
+			dynamicarray = new DynamicArray<Integer>(5);
+		}
+		
 		@Test
 		public void testRemovingFromEmptyArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			assertThrows(RuntimeException.class, () -> dynamicarray.remove());
 		}
 		
 		@Test
 		public void testRemovingFromArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(b);
@@ -224,13 +234,11 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testRemovingAtIndexFromEmptyArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			assertThrows(RuntimeException.class, () -> dynamicarray.removeAtIndex(0));
 		}
 		
 		@Test
 		public void testRemovingElementAtNegativeIndex() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.removeAtIndex(-1));
@@ -238,7 +246,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testRemovingElementOutOfPositiveArrayBounds() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>(5);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			assertThrows(IndexOutOfBoundsException.class, () -> dynamicarray.removeAtIndex(5));
@@ -246,7 +253,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testRemovingAtValidIndex() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(b);
@@ -260,7 +266,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testRemoveElementInArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -271,7 +276,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testRemoveElementNotInArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -282,7 +286,6 @@ public class DynamicArrayTest {
 		
 		@Test
 		public void testClearArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			dynamicarray.add(a);
 			dynamicarray.add(a);
 			dynamicarray.add(a);
@@ -296,15 +299,20 @@ public class DynamicArrayTest {
 	@Nested
 	@DisplayName("Test Array to String")
 	class ArrayToString {
+		DynamicArray<Integer> dynamicarray;
+		
+		@BeforeEach
+		void init() {
+			dynamicarray = new DynamicArray<Integer>();
+		}
+		
 		@Test
 		public void testStringifyingEmptyArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 			assertEquals("[]", dynamicarray.toString());
 		}
 		
 		@Test
 		public void testStringifyingNonEmptyArray() {
-			DynamicArray<Integer> dynamicarray = new DynamicArray<Integer>();
 
 			dynamicarray.add(a);
 			dynamicarray.add(b);
