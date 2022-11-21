@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 
 public class DynamicArrayTest {
 	
-	// Add display names for test
-	
 	Integer a = 1;
 	Integer b = 2;
 	Integer c = 3;

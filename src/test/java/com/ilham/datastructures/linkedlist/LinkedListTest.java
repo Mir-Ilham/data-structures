@@ -23,8 +23,10 @@ public class LinkedListTest {
 	
 	@Test
 	public void testEmptyList() {
-		assertEquals("[]", linkedlist.toString());
-		assertEquals(0, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[]", linkedlist.toString()),
+				() -> assertEquals(0, linkedlist.length())
+				);
 	}
 
 	@Test
@@ -33,8 +35,10 @@ public class LinkedListTest {
 		linkedlist.addBegin(b);
 		linkedlist.addBegin(a);
 		
-		assertEquals("[101, 202, 303]", linkedlist.toString());
-		assertEquals(3, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[101, 202, 303]", linkedlist.toString()),
+				() -> assertEquals(3, linkedlist.length())
+				);
 	}
 	
 	@Test
@@ -56,8 +60,10 @@ public class LinkedListTest {
 		linkedlist.addAtIndex(b, 0);
 		linkedlist.addAtIndex(a, 0);
 		
-		assertEquals("[101, 202, 303]", linkedlist.toString());
-		assertEquals(3, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[101, 202, 303]", linkedlist.toString()),
+				() -> assertEquals(3, linkedlist.length())
+				);
 	}
 	
 	@Test
@@ -83,8 +89,10 @@ public class LinkedListTest {
 		linkedlist.addBegin(a);
 		linkedlist.addAtIndex(a, linkedlist.length());
 		
-		assertEquals("[101, 202, 303, 101]", linkedlist.toString());
-		assertEquals(4, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[101, 202, 303, 101]", linkedlist.toString()),
+				() -> assertEquals(4, linkedlist.length())
+				);
 	}
 
 	@Test
@@ -93,8 +101,10 @@ public class LinkedListTest {
 		linkedlist.addEnd(b);
 		linkedlist.addEnd(c);
 		
-		assertEquals("[101, 202, 303]", linkedlist.toString());
-		assertEquals(3, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[101, 202, 303]", linkedlist.toString()),
+				() -> assertEquals(3, linkedlist.length())
+				);	
 	}
 	
 	@Test
@@ -165,9 +175,11 @@ public class LinkedListTest {
 		linkedlist.addBegin(a);
 		Integer removedElement = linkedlist.removeBegin();
 		
-		assertEquals("[202, 303]", linkedlist.toString());
-		assertEquals(a, removedElement);
-		assertEquals(2, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[202, 303]", linkedlist.toString()),
+				() -> assertEquals(a, removedElement),
+				() -> assertEquals(2, linkedlist.length())
+				);
 	}
 	
 	@Test
@@ -197,8 +209,10 @@ public class LinkedListTest {
 		linkedlist.removeAtIndex(0);
 		linkedlist.removeAtIndex(0);
 		
-		assertEquals("[]", linkedlist.toString());
-		assertEquals(0, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[]", linkedlist.toString()),
+				() -> assertEquals(0, linkedlist.length())
+				);
 	}
 	
 	@Test
@@ -228,9 +242,11 @@ public class LinkedListTest {
 		
 		Integer removedElement = linkedlist.removeAtIndex(2);
 		
-		assertEquals("[101, 202, 404]", linkedlist.toString());
-		assertEquals(c, removedElement);
-		assertEquals(3, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[101, 202, 404]", linkedlist.toString()),
+				() -> assertEquals(c, removedElement),
+				() -> assertEquals(3, linkedlist.length())
+				);	
 	}
 	
 	@Test
@@ -242,9 +258,11 @@ public class LinkedListTest {
 		
 		Integer removedElement = linkedlist.removeAtIndex(0);
 		
-		assertEquals("[202, 303, 404]", linkedlist.toString());
-		assertEquals(a, removedElement);
-		assertEquals(3, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[202, 303, 404]", linkedlist.toString()),
+				() -> assertEquals(a, removedElement),
+				() -> assertEquals(3, linkedlist.length())
+				);
 	}
 	
 	@Test
@@ -256,8 +274,10 @@ public class LinkedListTest {
 		
 		Integer removedElement = linkedlist.removeEnd();
 		
-		assertEquals("[101, 202, 303]", linkedlist.toString());
-		assertEquals(d, removedElement);
-		assertEquals(3, linkedlist.length());
+		assertAll(
+				() -> assertEquals("[101, 202, 303]", linkedlist.toString()),
+				() -> assertEquals(d, removedElement),
+				() -> assertEquals(3, linkedlist.length())
+				);	
 	}
 }
